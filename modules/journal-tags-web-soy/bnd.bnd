@@ -1,0 +1,10 @@
+Bundle-Name: Liferay Grow Journal Tags Soy Web
+Bundle-SymbolicName: com.liferay.grow.journal.tags.soy.web
+Bundle-Version: 1.0.0
+Provide-Capability:\
+	soy;\
+		type="journal-tags-web-soy";\
+		version:Version="${Bundle-Version}"
+Require-Capability:\
+	osgi.extender;\
+		filter:="(&(osgi.extender=jsp.taglib)(uri=http://liferay.com/tld/soy))",\

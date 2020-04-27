@@ -1,0 +1,35 @@
+{namespace com.liferay.journal.tags.web.Tags}
+
+{template .render}
+    {@param hasTags: bool}
+    {@param hasOfficial: bool}
+    {@param unofficialTags: list<string>}
+
+    <nav class="a-items">
+        <input class="activate hidden" id="tags" name="tags" type="checkbox"/>
+
+        <label class="accordion-label" for="tags">Tags</label>
+
+        <div class="a-content sbox">
+            <ul class="list-unstyled">
+                {if $hasTags}
+                    {if $hasOfficial}
+                        <li>
+                            <span class="glyphicon glyphicon-check"></span>
+
+                            <a href="/search?assetTagNames=official">official</a>
+                        </li>
+                    {/if}
+
+                    <li>
+                        <span class="glyphicon glyphicon-tags"></span>
+
+                        {foreach $unofficialTag in $unofficialTags}
+                            <a href="/search?assetTagNames={$unofficialTag}" >{$unofficialTag}</a>
+                        {/foreach}
+                    </li>
+                {/if}
+            </ul>
+        </div>
+    </nav>
+{/template}
